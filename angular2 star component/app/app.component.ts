@@ -3,7 +3,12 @@ import {StarComponent} from './star.component';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1><star></star>',
+    template: '<star [clicked]="testPost.isFavorite"></star>',
     directives: [StarComponent]
 })
-export class AppComponent { }
+export class AppComponent {
+  testPost = {
+    title: "Title",
+    isFavorite: true
+  }
+}

@@ -25,6 +25,10 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 StarComponent.prototype.toggleStar = function () {
                     this.clicked = !this.clicked;
                 };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], StarComponent.prototype, "clicked", void 0);
                 StarComponent = __decorate([
                     core_1.Component({
                         selector: 'star',

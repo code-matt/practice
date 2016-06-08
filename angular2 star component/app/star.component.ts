@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import {Component, Input} from 'angular2/core';
 
 @Component({
   selector: 'star',
@@ -15,7 +15,7 @@ import { Component } from 'angular2/core';
 })
 
 export class StarComponent{
-  clicked = false;
+  @Input() clicked = false;
   toggleStar(){
     this.clicked = !this.clicked;
   }

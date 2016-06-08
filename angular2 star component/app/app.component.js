@@ -23,11 +23,15 @@ System.register(['angular2/core', './star.component'], function(exports_1, conte
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.testPost = {
+                        title: "Title",
+                        isFavorite: true
+                    };
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>My First Angular 2 App</h1><star></star>',
+                        template: '<star [clicked]="testPost.isFavorite"></star>',
                         directives: [star_component_1.StarComponent]
                     }), 
                     __metadata('design:paramtypes', [])
