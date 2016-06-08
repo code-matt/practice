@@ -2,16 +2,12 @@ import {Component, Input, EventEmitter, Output} from 'angular2/core';
 
 @Component({
   selector: 'star',
-  template:`
-    <div>
-      <i
-       class="glyphicon"
-       [class.glyphicon-star-empty]="!clicked"
-       [class.glyphicon-star]="clicked"
-       (click)="toggleStar()">
-      </i>
-    </div>
-  `
+  templateUrl: 'app/star.template.html',
+  styles: [`
+    .glyphicon-star {
+      color: orange;
+    }
+  `]
 })
 
 export class StarComponent{

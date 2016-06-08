@@ -38,7 +38,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 StarComponent = __decorate([
                     core_1.Component({
                         selector: 'star',
-                        template: "\n    <div>\n      <i\n       class=\"glyphicon\"\n       [class.glyphicon-star-empty]=\"!clicked\"\n       [class.glyphicon-star]=\"clicked\"\n       (click)=\"toggleStar()\">\n      </i>\n    </div>\n  "
+                        templateUrl: 'app/star.template.html',
+                        styles: ["\n    .glyphicon-star {\n      color: orange;\n    }\n  "]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], StarComponent);
