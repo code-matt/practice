@@ -20,11 +20,30 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             LikeComponent = (function () {
                 function LikeComponent() {
+                    this.numOfLikes = 0;
+                    this.liked = false;
+                    this.likeChange = new core_1.EventEmitter();
                 }
+                LikeComponent.prototype.likeEvent = function (liked) {
+                    this.liked = !this.liked;
+                    this.likeChange.emit({ val: liked });
+                };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], LikeComponent.prototype, "numOfLikes", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], LikeComponent.prototype, "liked", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], LikeComponent.prototype, "likeChange", void 0);
                 LikeComponent = __decorate([
                     core_1.Component({
                         selector: 'likes',
-                        template: "\n    <i class=\"glyphicon glyphicon-heart\"></i>\n  ",
+                        template: "\n    <i\n      class=\"glyphicon glyphicon-heart\"\n      (click)=\"likeEvent(liked)\"\n      [style.color]=\"!liked ? '#CCC' : 'deeppink'\">\n    </i>\n    {{numOfLikes}}\n  ",
                         styles: ["\n    .glyphicon-heart{\n      color: #CCC;\n      cursor: pointer;\n    }\n  "]
                     }), 
                     __metadata('design:paramtypes', [])

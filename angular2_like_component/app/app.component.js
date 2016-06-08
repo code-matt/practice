@@ -23,11 +23,24 @@ System.register(['angular2/core', './like.component'], function(exports_1, conte
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.fakePost = {
+                        title: 'Title',
+                        liked: false,
+                        numOfLikes: 10
+                    };
                 }
+                AppComponent.prototype.addLike = function ($event) {
+                    if ($event.val) {
+                        this.fakePost.numOfLikes--;
+                    }
+                    else {
+                        this.fakePost.numOfLikes++;
+                    }
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<likes></likes>',
+                        template: "\n      <likes\n        [numOfLikes]=\"fakePost.numOfLikes\"\n        [liked]=\"fakePost.liked\"\n        (likeChange)=\"addLike($event)\">\n      </likes>\n    ",
                         directives: [like_component_1.LikeComponent]
                     }), 
                     __metadata('design:paramtypes', [])
