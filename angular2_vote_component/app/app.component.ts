@@ -20,10 +20,7 @@ export class AppComponent {
   }
 
   voteChange($event){
-    if(this.fakeAnswer.myVote < 1 && this.fakeAnswer.myVote > -1)
-    {
-      this.fakeAnswer.myVote += $event.val ? 1 : -1;
-      this.fakeAnswer.voteCount += $event.val ? 1 : -1;
-    }
+    this.fakeAnswer.myVote += $event.val ? 1 : -1;
+    this.fakeAnswer.voteCount += $event.val ? 1 : -1;
   }
 }

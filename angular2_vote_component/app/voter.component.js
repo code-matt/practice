@@ -25,9 +25,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.vote = new core_1.EventEmitter();
                 }
                 VoteComponent.prototype.upVote = function () {
+                    if (this.myVote == 1) {
+                        return;
+                    }
                     this.vote.emit({ val: 1 });
                 };
                 VoteComponent.prototype.downVote = function () {
+                    if (this.myVote == -1) {
+                        return;
+                    }
                     this.vote.emit({ val: 0 });
                 };
                 __decorate([

@@ -29,9 +29,19 @@ export class VoteComponent{
   @Input() myVote = 0;
   @Output() vote = new EventEmitter();
   upVote(){
-    this.vote.emit({val: 1})
+    if(this.myVote == 1)
+    {
+      return;
+    }
+
+    this.vote.emit({val: 1});
   }
   downVote(){
-    this.vote.emit({val:0})
+    if(this.myVote == -1)
+    {
+      return;
+    }
+
+    this.vote.emit({val:0});
   }
 }
