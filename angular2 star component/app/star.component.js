@@ -21,14 +21,20 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             StarComponent = (function () {
                 function StarComponent() {
                     this.clicked = false;
+                    this.change = new core_1.EventEmitter();
                 }
                 StarComponent.prototype.toggleStar = function () {
                     this.clicked = !this.clicked;
+                    this.change.emit({ val: this.clicked });
                 };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Object)
                 ], StarComponent.prototype, "clicked", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], StarComponent.prototype, "change", void 0);
                 StarComponent = __decorate([
                     core_1.Component({
                         selector: 'star',

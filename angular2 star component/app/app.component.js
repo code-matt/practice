@@ -28,10 +28,13 @@ System.register(['angular2/core', './star.component'], function(exports_1, conte
                         isFavorite: true
                     };
                 }
+                AppComponent.prototype.favoriteToggle = function ($event) {
+                    console.log($event.val);
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<star [clicked]="testPost.isFavorite"></star>',
+                        template: "\n    <star\n      [clicked]=\"testPost.isFavorite\"\n      (change)=\"favoriteToggle($event)\">\n    </star>",
                         directives: [star_component_1.StarComponent]
                     }), 
                     __metadata('design:paramtypes', [])

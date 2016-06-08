@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, EventEmitter, Output} from 'angular2/core';
 
 @Component({
   selector: 'star',
@@ -16,7 +16,9 @@ import {Component, Input} from 'angular2/core';
 
 export class StarComponent{
   @Input() clicked = false;
+  @Output() change = new EventEmitter();
   toggleStar(){
     this.clicked = !this.clicked;
+    this.change.emit({val: this.clicked});
   }
 }
