@@ -22,20 +22,13 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function StarComponent() {
                     this.clicked = false;
                 }
-                StarComponent.prototype.toggleStar = function ($event) {
-                    if (!this.clicked) {
-                        $event.target.className = "glyphicon glyphicon-star";
-                        this.clicked = true;
-                    }
-                    else {
-                        $event.target.className = "glyphicon glyphicon-star-empty";
-                        this.clicked = false;
-                    }
+                StarComponent.prototype.toggleStar = function () {
+                    this.clicked = !this.clicked;
                 };
                 StarComponent = __decorate([
                     core_1.Component({
                         selector: 'star',
-                        template: "\n    <div>\n      <i class=\"glyphicon glyphicon-star-empty\" (click)=\"toggleStar($event)\"></i>\n    </div>\n  "
+                        template: "\n    <div>\n      <i\n       class=\"glyphicon\"\n       [class.glyphicon-star-empty]=\"!clicked\"\n       [class.glyphicon-star]=\"clicked\"\n       (click)=\"toggleStar()\">\n      </i>\n    </div>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], StarComponent);
