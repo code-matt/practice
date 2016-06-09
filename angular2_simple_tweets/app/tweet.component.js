@@ -20,11 +20,36 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             TweetComponent = (function () {
                 function TweetComponent() {
+                    this.user = 'default';
+                    this.title = 'default title';
+                    this.image = 'image';
+                    this.body = 'default body';
+                    this.favorites = 0;
                 }
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], TweetComponent.prototype, "user", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], TweetComponent.prototype, "title", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], TweetComponent.prototype, "image", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], TweetComponent.prototype, "body", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], TweetComponent.prototype, "favorites", void 0);
                 TweetComponent = __decorate([
                     core_1.Component({
                         selector: 'tweet',
-                        template: "\n    tweet\n  "
+                        template: "\n  <div class=\"media\">\n    <div class=\"media-left\">\n      {{\"@\" + user}}\n      <a href=\"#\">\n        <img class=\"media-object well well-lg\" src=\"{{image}}\" alt=\"...\">\n      </a>\n    </div>\n    <div class=\"media-body jumbotron\">\n      <h4 class=\"media-heading\">{{title}}</h4>\n      {{body}}\n    </div>\n  </div>\n  <br/>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], TweetComponent);

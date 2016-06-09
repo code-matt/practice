@@ -1,4 +1,4 @@
-System.register(['angular2/core', './tweets.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './tweets.service', './tweet.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './tweets.service'], function(exports_1, conte
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tweets_service_1;
+    var core_1, tweets_service_1, tweet_component_1;
     var FeedComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', './tweets.service'], function(exports_1, conte
             },
             function (tweets_service_1_1) {
                 tweets_service_1 = tweets_service_1_1;
+            },
+            function (tweet_component_1_1) {
+                tweet_component_1 = tweet_component_1_1;
             }],
         execute: function() {
             FeedComponent = (function () {
@@ -28,8 +31,9 @@ System.register(['angular2/core', './tweets.service'], function(exports_1, conte
                 FeedComponent = __decorate([
                     core_1.Component({
                         selector: 'feed',
-                        template: "\n    <h3>FEEED</h3>\n    <div *ngFor=\"#tweet of tweets\">\n      <tweet></tweet>\n    </div>\n  ",
-                        providers: [tweets_service_1.TweetsService]
+                        template: "\n    <h3>FEEED</h3>\n    <div *ngFor=\"#tweet of tweets\">\n      <tweet\n        [user]=\"tweet.user\"\n        [title]=\"tweet.title\"\n        [image]=\"tweet.image\"\n        [body]=\"tweet.body\"\n        [favorites]=\"tweet.favorites\">\n      </tweet>\n    </div>\n  ",
+                        providers: [tweets_service_1.TweetsService],
+                        directives: [tweet_component_1.TweetComponent]
                     }), 
                     __metadata('design:paramtypes', [tweets_service_1.TweetsService])
                 ], FeedComponent);
