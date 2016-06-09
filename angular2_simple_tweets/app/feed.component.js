@@ -1,4 +1,4 @@
-System.register(['angular2/core', './feed.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './tweets.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,33 @@ System.register(['angular2/core', './feed.component'], function(exports_1, conte
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, feed_component_1;
-    var AppComponent;
+    var core_1, tweets_service_1;
+    var FeedComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (feed_component_1_1) {
-                feed_component_1 = feed_component_1_1;
+            function (tweets_service_1_1) {
+                tweets_service_1 = tweets_service_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            FeedComponent = (function () {
+                function FeedComponent(tweetsService) {
+                    this.tweets = tweetsService.getTweets();
                 }
-                AppComponent = __decorate([
+                FeedComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: "\n    <h3>TWEETER<h3>\n    <span><feed></feed></span>\n    ",
-                        directives: [feed_component_1.FeedComponent]
+                        selector: 'feed',
+                        template: "\n    <h3>FEEED</h3>\n    <div *ngFor=\"#tweet of tweets\">\n      <tweet></tweet>\n    </div>\n  ",
+                        providers: [tweets_service_1.TweetsService]
                     }), 
-                    __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                    __metadata('design:paramtypes', [tweets_service_1.TweetsService])
+                ], FeedComponent);
+                return FeedComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("FeedComponent", FeedComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=feed.component.js.map
