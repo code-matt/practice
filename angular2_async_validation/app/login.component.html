@@ -1,11 +1,79 @@
-<form>
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input id="username" type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input id="username" type="text" class="form-control">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+<form
+  [ngFormModel]="form"
+  #f="ngForm"
+  (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label
+        for="currentpassword">
+          Current Password
+      </label>
+      <input
+        id="currentpassword"
+        type="text"
+        class="form-control"
+        ngControl="currentpassword"
+        #currentpassword="ngForm">
+    </div>
+    <div *ngIf="currentpassword.touched && currentpassword.errors">
+      <div
+        class="alert alert-danger"
+        *ngIf="currentpassword.errors.required">
+          Required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label
+        for="newpassword">
+          New Password
+      </label>
+      <input
+        id="username"
+        type="text"
+        class="form-control"
+        ngControl="newpassword"
+        #newpassword="ngForm">
+      <div *ngIf="newpassword.touched && newpassword.errors">
+        <div
+          class="alert alert-danger"
+          *ngIf="newpassword.errors.required">
+            Required!
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="newpassword.errors.minlength">
+            Password must be atleast 5 characters long.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label
+        for="confirmpassword">
+          Confirm Password
+      </label>
+      <input
+        id="username"
+        type="text"
+        class="form-control"
+        ngControl="confirmpassword"
+        #confirmpassword="ngForm">
+      <div *ngIf="confirmpassword.touched && confirmpassword.errors">
+        <div
+          class="alert alert-danger"
+          *ngIf="confirmpassword.errors.required">
+            Required!
+        </div>
+        <div *ngIf="form.errors">
+          <div
+            class="alert alert-danger"
+            *ngIf="form.errors.passwordsMustMatch">
+              Passwords must match!
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary">
+        Login
+    </button>
 </form>
