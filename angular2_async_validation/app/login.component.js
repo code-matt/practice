@@ -26,6 +26,7 @@ System.register(['angular2/core', 'angular2/common', './validators/passwordValid
         execute: function() {
             LoginComponent = (function () {
                 function LoginComponent(fb) {
+                    this.currentpassword = "12345";
                     this.form = fb.group({
                         currentpassword: ['', common_1.Validators.compose([
                                 common_1.Validators.required
@@ -41,6 +42,14 @@ System.register(['angular2/core', 'angular2/common', './validators/passwordValid
                     }, { validator: passwordValidators_1.PasswordValidators.passwordsMustMatch });
                 }
                 LoginComponent.prototype.onSubmit = function () {
+                    if (this.form.find('currentpassword').value !== this.currentpassword) {
+                        this.form.find('currentpassword').setErrors({
+                            invalidPassword: true
+                        });
+                    }
+                    else {
+                        alert('Password change success!');
+                    }
                 };
                 LoginComponent = __decorate([
                     core_1.Component({

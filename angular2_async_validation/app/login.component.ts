@@ -7,6 +7,7 @@ import {PasswordValidators} from './validators/passwordValidators';
   templateUrl: 'app/login.component.html'
 })
 export class LoginComponent{
+  currentpassword = "12345";
   form: ControlGroup;
 
   constructor(fb: FormBuilder){
@@ -26,5 +27,12 @@ export class LoginComponent{
   }
 
   onSubmit(){
+    if (this.form.find('currentpassword').value !== this.currentpassword){
+      this.form.find('currentpassword').setErrors({
+        invalidPassword: true
+      })
+    }else{
+      alert('Password change success!')
+    }
   }
 }
