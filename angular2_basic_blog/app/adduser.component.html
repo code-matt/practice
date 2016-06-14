@@ -1,27 +1,27 @@
 <h1>Add User</h1>
 <div class="row">
   <div class="col-md-6 col-sm-4 well">
-    <form [ngFormModel]="adduser" #f="ngForm">
+    <form [ngFormModel]="adduser" #f="ngForm" (ngSubmit)="signUp()">
       <fieldset>
         <legend>User Info</legend>
         <label>Name</label>
         <input class="form-control" ngControl="name" id="name" ngControl="name" #name="ngForm">
         <div *ngIf="name.touched && name.errors">
           <div *ngIf="name.errors.required" class="alert alert-danger">
-            Name is required
+            Name is required.
           </div>
         </div>
         <label>Email</label>
         <input class="form-control" ngControl="email" id="email" ngControl="email" #email="ngForm">
         <div *ngIf="email.touched && email.errors">
           <div *ngIf="email.errors" class="alert alert-danger">
-            Email is required
+            Valid email is required.
           </div>
         </div>
         <label>Phone</label>
         <input class="form-control" ngControl="phone" id="phone" ngControl="phone" #phone="ngForm">
       </fieldset>
-      <fieldset>
+      <fieldset ngControlGroup="address">
         <legend>Address Info</legend>
         <label>Street</label>
         <input class="form-control" ngControl="street" id="street" ngControl="street" #street="ngForm">

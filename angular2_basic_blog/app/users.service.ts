@@ -13,4 +13,9 @@ export class UsersService {
         return this._http.get(this._baseUrl)
             .map(res => res.json());
     }
+
+    addUser(data){
+      return this._http.post(this._baseUrl, data)
+        .map(res => res.json());
+    }
 }
