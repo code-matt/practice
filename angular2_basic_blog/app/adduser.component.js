@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/common', 'angular2/router', './users.service', './emailvalidator'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/common', 'angular2/router', './users.service', './emailvalidator', './user'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/common', 'angular2/router', './users
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, router_1, users_service_1, emailvalidator_1;
+    var core_1, common_1, router_1, users_service_1, emailvalidator_1, user_1;
     var AddUserComponent;
     return {
         setters:[
@@ -28,12 +28,17 @@ System.register(['angular2/core', 'angular2/common', 'angular2/router', './users
             },
             function (emailvalidator_1_1) {
                 emailvalidator_1 = emailvalidator_1_1;
+            },
+            function (user_1_1) {
+                user_1 = user_1_1;
             }],
         execute: function() {
             AddUserComponent = (function () {
-                function AddUserComponent(fb, _usersService, _router) {
+                function AddUserComponent(fb, _usersService, _router, _routeParams) {
                     this._usersService = _usersService;
                     this._router = _router;
+                    this._routeParams = _routeParams;
+                    this.user = new user_1.User();
                     this.adduser = fb.group({
                         name: ['', common_1.Validators.required],
                         email: ['', emailvalidator_1.EmailValidator.mustBeValidEmail],
@@ -52,13 +57,23 @@ System.register(['angular2/core', 'angular2/common', 'angular2/router', './users
                         _this._router.navigate(['Users']);
                     });
                 };
+                AddUserComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this.id = +this._routeParams.params['id'];
+                    this.title = this.id ? 'Edit User' : 'Add User';
+                    if (!this.id)
+                        return;
+                    console.log(this.id);
+                    this._usersService.getUser(this.id)
+                        .subscribe(function (user) { return _this.user = user; });
+                };
                 AddUserComponent = __decorate([
                     core_1.Component({
                         selector: 'adduser',
                         providers: [users_service_1.UsersService],
                         templateUrl: 'app/adduser.component.html'
                     }), 
-                    __metadata('design:paramtypes', [common_1.FormBuilder, users_service_1.UsersService, router_1.Router])
+                    __metadata('design:paramtypes', [common_1.FormBuilder, users_service_1.UsersService, router_1.Router, router_1.RouteParams])
                 ], AddUserComponent);
                 return AddUserComponent;
             }());

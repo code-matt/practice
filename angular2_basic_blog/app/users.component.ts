@@ -10,12 +10,18 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
   template: `
   <a class="btn btn-primary" [routerLink]="['AddUser']">Add User</a>
     <h2>Users</h2>
-    <ul>
-      <li *ngFor="#user of users">
-        {{user.name}}
-        {{user.email}}
-      </li>
-    </ul>
+    <table class="table-bordered">
+      <th>Name</th>
+      <th>Email</th>
+      <th>Edit</th>
+      <th>Delete</th>
+      <tr *ngFor="#user of users">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td><a [routerLink]="['AddUser']" class="glyphicon glyphicon-edit"></a></td>
+        <td><a class="glyphicon glyphicon-remove"></a></td>
+      </tr>
+    </table>
   `
 })
 export class UsersComponent implements OnInit{

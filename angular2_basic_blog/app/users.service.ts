@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UsersService {
-    private _baseUrl = "http://jsonplaceholder.typicode.com/users";
+    private _baseUrl = "http://jsonplaceholder.typicode.com/users/";
 
     constructor(private _http: Http){}
 
@@ -17,5 +17,10 @@ export class UsersService {
     addUser(data){
       return this._http.post(this._baseUrl, data)
         .map(res => res.json());
+    }
+
+    getUser(id){
+      return this._http.get(this._baseUrl + id)
+        .map(res => res.json())
     }
 }

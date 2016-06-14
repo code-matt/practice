@@ -11,6 +11,7 @@ import {AddUserComponent} from './adduser.component';
   { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true },
   { path: '/Users', name: 'Users', component: UsersComponent },
   { path: '/Posts', name: 'Posts', component: PostsComponent },
+  { path: '/AddUser/:id', name: 'AddUser', component: AddUserComponent },
   { path: '/AddUser', name: 'AddUser', component: AddUserComponent },
   { path: '/*other', name: 'Other', redirectTo: ['Home'] }
 ])
