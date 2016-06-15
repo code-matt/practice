@@ -19,7 +19,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
         <td>{{user.name}}</td>
         <td>{{user.email}}</td>
         <td><a [routerLink]="['AddUser', {id: user.id}]" class="glyphicon glyphicon-edit"></a></td>
-        <td><a class="glyphicon glyphicon-remove"></a></td>
+        <td><a class="glyphicon glyphicon-remove" (click)="removeUser(user)"></a></td>
       </tr>
     </table>
   `
@@ -37,5 +37,12 @@ export class UsersComponent implements OnInit{
       null,
       null
     )
+  }
+
+  removeUser(user)
+  {
+    var index = this.users.indexOf(user);
+    if(index != -1)
+      this.users.splice( index, 1 );
   }
 }
