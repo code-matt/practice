@@ -39,7 +39,7 @@ System.register(['angular2/core', './users.service', 'angular2/router'], functio
                         selector: 'users',
                         providers: [users_service_1.UsersService],
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "\n  <a class=\"btn btn-primary\" [routerLink]=\"['AddUser']\">Add User</a>\n    <h2>Users</h2>\n    <table class=\"table-bordered\">\n      <th>Name</th>\n      <th>Email</th>\n      <th>Edit</th>\n      <th>Delete</th>\n      <tr *ngFor=\"#user of users\">\n        <td>{{user.name}}</td>\n        <td>{{user.email}}</td>\n        <td><a [routerLink]=\"['AddUser', {id: user.id}]\" class=\"glyphicon glyphicon-edit\"></a></td>\n        <td><a class=\"glyphicon glyphicon-remove\"></a></td>\n      </tr>\n    </table>\n  "
+                        template: "\n  <a class=\"btn btn-primary\" [routerLink]=\"['AddUser']\">Add User</a>\n    <h2>Users</h2>\n    <table class=\"table-bordered\">\n      <th>Name </th>\n      <th>Email</th>\n      <th>Edit</th>\n      <th>Delete</th>\n      <tr *ngFor=\"#user of users\">\n        <td>{{user.name}}</td>\n        <td>{{user.email}}</td>\n        <td><a [routerLink]=\"['AddUser', {id: user.id}]\" class=\"glyphicon glyphicon-edit\"></a></td>\n        <td><a class=\"glyphicon glyphicon-remove\"></a></td>\n      </tr>\n    </table>\n  "
                     }), 
                     __metadata('design:paramtypes', [users_service_1.UsersService])
                 ], UsersComponent);

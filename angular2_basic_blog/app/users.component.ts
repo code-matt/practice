@@ -11,7 +11,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
   <a class="btn btn-primary" [routerLink]="['AddUser']">Add User</a>
     <h2>Users</h2>
     <table class="table-bordered">
-      <th>Name</th>
+      <th>Name </th>
       <th>Email</th>
       <th>Edit</th>
       <th>Delete</th>
