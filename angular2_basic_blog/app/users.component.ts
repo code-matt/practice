@@ -18,7 +18,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
       <tr *ngFor="#user of users">
         <td>{{user.name}}</td>
         <td>{{user.email}}</td>
-        <td><a [routerLink]="['AddUser']" class="glyphicon glyphicon-edit"></a></td>
+        <td><a [routerLink]="['AddUser', {id: user.id}]" class="glyphicon glyphicon-edit"></a></td>
         <td><a class="glyphicon glyphicon-remove"></a></td>
       </tr>
     </table>
